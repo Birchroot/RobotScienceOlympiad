@@ -1,1 +1,1 @@
-basic.show_icon(IconNames.YES)
+makerbit.run_motor(MakerBitMotor.ALL, 100)
