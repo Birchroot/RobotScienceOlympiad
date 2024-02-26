@@ -1,3 +1,9 @@
+def foward(direction, spaces):
+def turnLeft():
+def turnRight():
+
+
+
 while True:
     makerbit.run_motor(MakerBitMotor.ALL, 100)
     time = control.millis()
