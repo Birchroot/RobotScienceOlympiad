@@ -1,7 +1,7 @@
-//  Jacob if you want to rewrite any this idc==========
-let commands = ["1N", "2E", "3S"]
+//  Jacob if you want to rewrite all this idc==========
 //  moveFoward/L/R function declarations ===============
 //  array looper=======================================
+let commands = ["1N", "2E", "3S"]
 function commandInterpreter(cmds: string[]) {
     let splitCommand: string[];
     let distanceToMove: string;
@@ -9,13 +9,13 @@ function commandInterpreter(cmds: string[]) {
     for (let x of cmds) {
         splitCommand = _py.py_string_split(x, "")
         distanceToMove = splitCommand[0]
-        /** 
-        here's my java/type script for the switch case statements.
-        it wouldn't let me convert to python with them empty
-        so i will just put it here for you or me to fix later
-        switch(splitCommand[1]){
+        /** these are the switch case statements from the 
+        java/typescript code that I wrote. it wouldn't
+        let me convert it to python with them empty. 
+        one of us can fix this some other time.
+        switch (splitCommand[1]) {
             case 'N':
-                switch(previousDirection){
+                switch (previousDirection) {
                     case 'N':
                     case 'E':
                     case 'S':
@@ -42,7 +42,6 @@ function commandInterpreter(cmds: string[]) {
                     case 'S':
                     case 'W':
                 }
-
         
  */
     }
@@ -51,6 +50,7 @@ function commandInterpreter(cmds: string[]) {
 commandInterpreter(commands)
 //  =========testing stuff bla bla========================
 /** 
+
 while (true) {
 makerbit.runMotor(MakerBitMotor.All, 100)
 time = control.millis()

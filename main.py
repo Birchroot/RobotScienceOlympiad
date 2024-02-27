@@ -1,23 +1,37 @@
-# Jacob if you want to rewrite any this idc==========
+"""
+Jacob if you want to rewrite all this idc. when i tried to
+convert it to python it decided to break. og java/type script is
+on the google doc i shared w/ you (Robot Tour)
+"""
+#write on day of competition==========================
 commands = [
     '1N', '2E', '3S'
 ]
+#=====================================================
+
 # moveFoward/L/R function declarations ===============
 
+# array looper========================================
 
-# array looper=======================================
 def commandInterpreter(cmds: List[str]):
     previousDirection = 'N'
     for x in cmds:
-        splitCommand = x.split("")
-        distanceToMove = splitCommand[0]
         """
-        here's my java/type script for the switch case statements.
-        it wouldn't let me convert to python with them empty
-        so i will just put it here for you or me to fix later
-        switch(splitCommand[1]){
+        this is throwing error, it didn't convert languages correctly. 
+        plz add the equivalent string splitter for python.
+        
+        splitCommand = x.split("") 
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+        """
+        distanceToMove = splitCommand[0]
+        """these are the switch case statements from the 
+        java/typescript code that I wrote. it wouldn't
+        let me convert it to python with them empty. 
+        one of us can fix this some other time.
+        
+        switch (splitCommand[1]) {
             case 'N':
-                switch(previousDirection){
+                switch (previousDirection) {
                     case 'N':
                     case 'E':
                     case 'S':
@@ -44,13 +58,15 @@ def commandInterpreter(cmds: List[str]):
                     case 'S':
                     case 'W':
                 }
-
         """
 commandInterpreter(commands)
 
-# =========testing stuff bla bla========================
 
+
+
+# =========testing stuff bla bla========================
 """
+
 while (true) {
 makerbit.runMotor(MakerBitMotor.All, 100)
 time = control.millis()
