@@ -1,7 +1,14 @@
-//  Jacob if you want to rewrite all this idc==========
-//  moveFoward/L/R function declarations ===============
-//  array looper=======================================
+/** 
+Jacob if you want to rewrite all this idc. when i tried to
+convert it to python it decided to break. og java/type script is
+on the google doc i shared w/ you (Robot Tour)
+
+ */
+// write on day of competition==========================
 let commands = ["1N", "2E", "3S"]
+// =====================================================
+//  moveFoward/L/R function declarations ===============
+//  array looper========================================
 function commandInterpreter(cmds: string[]) {
     let splitCommand: string[];
     let distanceToMove: string;
@@ -13,6 +20,7 @@ function commandInterpreter(cmds: string[]) {
         java/typescript code that I wrote. it wouldn't
         let me convert it to python with them empty. 
         one of us can fix this some other time.
+        
         switch (splitCommand[1]) {
             case 'N':
                 switch (previousDirection) {

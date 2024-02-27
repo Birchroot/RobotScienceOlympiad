@@ -16,13 +16,7 @@ commands = [
 def commandInterpreter(cmds: List[str]):
     previousDirection = 'N'
     for x in cmds:
-        """
-        this is throwing error, it didn't convert languages correctly. 
-        plz add the equivalent string splitter for python.
-        
-        splitCommand = x.split("") 
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^
-        """
+        splitCommand = x.split("")
         distanceToMove = splitCommand[0]
         """these are the switch case statements from the 
         java/typescript code that I wrote. it wouldn't
