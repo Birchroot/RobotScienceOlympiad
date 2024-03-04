@@ -13,46 +13,83 @@ commands = [
 
 # array looper========================================
 
-def commandInterpreter(cmds: List[str]):
+def forward(strength):
+    print("WOW")
+
+def right():
+    print()
+
+def left():
+    print("WOW")
+
+def commandInterpreter(cmds):
     previousDirection = 'N'
     for x in cmds:
-        splitCommand = x.split("")
-        distanceToMove = splitCommand[0]
-        """these are the switch case statements from the 
-        java/typescript code that I wrote. it wouldn't
-        let me convert it to python with them empty. 
-        one of us can fix this some other time.
+        temp = list(x)
+
+        strength = temp[0]
+        direction = temp[1]
+
+        if(previousDirection == 'N'):
+            if(direction == "N"):
+                forward(strength)
+            elif(direction == "E"):
+                right()
+            elif(direction == "S"):
+                right()
+                right()
+            elif(direction == "W"):
+                left()
+
+        if(previousDirection == 'E'):
+            if(direction == "N"):
+                left()
+            elif(direction == "E"):
+                forward(strength)
+            elif(direction == "S"):
+                right()
+            elif(direction == "W"):
+                right()
+                right()
+
+        if(previousDirection == 'S'):
+            if(direction == "N"):
+                right()
+                right()
+            elif(direction == "E"):
+                left()
+            elif(direction == "S"):
+                forward(strength)
+            elif(direction == "W"):
+                right()
+            
+        if(previousDirection == 'E'):
+            if(direction == "N"):
+                left()
+            elif(direction == "E"):
+                forward(strength)
+            elif(direction == "S"):
+                right()
+            elif(direction == "W"):
+                right()
+                right()
+
+
+        if(previousDirection == 'W'):
+            if(direction == "N"):
+                right()
+            elif(direction == "E"):
+                right()
+                right()
+            elif(direction == "S"):
+                left()
+            elif(direction == "W"):
+                forward(strength)
+
+            
+
         
-        switch (splitCommand[1]) {
-            case 'N':
-                switch (previousDirection) {
-                    case 'N':
-                    case 'E':
-                    case 'S':
-                    case 'W':
-                }
-            case 'E':
-                switch (previousDirection) {
-                    case 'N':
-                    case 'E':
-                    case 'S':
-                    case 'W':
-                }
-            case 'S':
-                switch (previousDirection) {
-                    case 'N':
-                    case 'E':
-                    case 'S':
-                    case 'W':
-                }
-            case 'W':
-                switch (previousDirection) {
-                    case 'N':
-                    case 'E':
-                    case 'S':
-                    case 'W':
-                }
-        """
+
 commandInterpreter(commands)
 
 
