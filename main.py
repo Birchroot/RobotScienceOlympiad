@@ -1,3 +1,20 @@
+"""move 25cm
+motion.drive(7.5, 1)
+control.wait_micros(300000)
+motion.drive(7, 7)
+control.wait_micros(1290000)
+motion.stop()
+"""
+"""move 50cm
+motion.drive(8, 2)
+control.wait_micros(290000)
+motion.drive(8, 7)
+control.wait_micros(800000)
+motion.drive(9, 9)
+control.wait_micros(2000000)
+motion.stop()
+"""
+#these functions are under 'motion' in the k8 library, which i added
 def forward(strength):
     for x in range(strength):
         print("FORWARD")

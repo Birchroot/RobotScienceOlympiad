@@ -8,7 +8,8 @@
         "servo": "*",
         "microturtle": "github:microsoft/pxt-microturtle#v0.0.9",
         "BitBot": "github:4tronix/bitbot#v1.5.12",
-        "MakerBit-Motor": "github:1010technologies/pxt-makerbit-motor#v1.1.1"
+        "MakerBit-Motor": "github:1010technologies/pxt-makerbit-motor#v1.1.1",
+        "k8": "github:k8robotics/pxt-k8#v1.1.0"
     },
     "files": [
         "main.blocks",
