@@ -1,13 +1,27 @@
 let commands = ["1N", "2E", "100W"];
 
 
-function forward(strength : number) {
-    motion.drive(100, 100)
+function forward25(strength: number) {
+    motion.drive(7.5, 1);
+    control.waitMicros(300000);
+    motion.drive(7, 7);
+    control.waitMicros(1290000);
+    motion.stop();
+}
+function forward50(strength:number) {
+    motion.drive(8, 2);
+    control.waitMicros(290000);
+    motion.drive(8, 7);
+    control.waitMicros(800000);
+    motion.drive(9, 9);
+    control.waitMicros(2000000);
+    motion.stop();
 }
 
-function right() {
-    motion.drive(100, 100)
+function right(){
+
 }
+
 
 function left() {
     motion.drive(100, 100)
@@ -27,42 +41,42 @@ commands.forEach((command) => {
     {
         if(direction == "N")
         {
-            forward(strength)
+            forward50(strength)
         }
         else if(direction == "E")
         {
             right()
-            forward(strength)
+            forward50(strength)
         }
         else if(direction == "S")
         {
             right()
             right()
-            forward(strength)
+            forward50(strength)
         }
         else if(direction == "W")
         {
             left()
-            forward(strength)
+            forward50(strength)
         }
     }
 
     if (previousDirection == 'E') {
         if (direction == "N") {
             left()
-            forward(strength)
+            forward50(strength)
         }
         else if (direction == "E") {
-            forward(strength)
+            forward50(strength)
         }
         else if (direction == "S") {
             right()
-            forward(strength)
+            forward50(strength)
         }
         else if (direction == "W") {
             right()
             right()
-            forward(strength)
+            forward50(strength)
         }
     }
 
@@ -70,37 +84,37 @@ commands.forEach((command) => {
         if (direction == "N") {
             right()
             right()
-            forward(strength)
+            forward50(strength)
         }
         else if (direction == "E") {
             left()
-            forward(strength)
+            forward50(strength)
         }
         else if (direction == "S") {
-            forward(strength)
+            forward50(strength)
         }
         else if (direction == "W") {
             right()
-            forward(strength)
+            forward50(strength)
         }
     }
 
     if (previousDirection == 'W') {
         if (direction == "N") {
             right()
-            forward(strength)
+            forward50(strength)
         }
         else if (direction == "E") {
             right()
             right()
-            forward(strength)
+            forward50(strength)
         }
         else if (direction == "S") {
             left()
-            forward(strength)
+            forward50(strength)
         }
         else if (direction == "W") {
-            forward(strength)
+            forward50(strength)
         }
     }
 })
