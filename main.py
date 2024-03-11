@@ -16,16 +16,24 @@ motion.stop()
 """
 #these functions are under 'motion' in the k8 library, which i added
 def forward(strength):
-    for x in range(strength):
-        print("FORWARD")
+    motion.drive(100,100)
+    motion.stop()
+    return
+    
 
 def right():
-    print("RIGHT")
+    #print("RIGHT")
+    motion.drive(100,100)
+    motion.stop()
+    return
 
 def left():
-    print("LEFT")
+    #print("LEFT")
+    motion.drive(100,100)
+    motion.stop()
+    return
 
-#Loops through and interprets the list 
+#Loops through and interprets the list
 def commandInterpreter(cmds):
     previousDirection = 'N'
     for x in cmds:
@@ -34,9 +42,9 @@ def commandInterpreter(cmds):
         strength = int(temp[0])
         direction = temp[1]
 
-        print("Prior direction: " +previousDirection)
-        print(strength)
-        print(direction)
+        #print("Prior direction: " +previousDirection)
+        #print(strength)
+        #print(direction)
 
         if (previousDirection == 'N'):
             if (direction == "N"):
