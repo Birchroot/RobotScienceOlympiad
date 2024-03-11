@@ -1,13 +1,14 @@
 let commands = ["1N", "2E", "100W"];
 
-
+let mu = 1;
 function forward25(strength: number) {
-    motion.drive(7.5, 1);
+    motion.drive(7.5 * mu, 1 * mu);
     control.waitMicros(300000);
     motion.drive(7, 7);
     control.waitMicros(1290000);
     motion.stop();
 }
+
 function forward50(strength:number) {
     motion.drive(8, 2);
     control.waitMicros(290000);
