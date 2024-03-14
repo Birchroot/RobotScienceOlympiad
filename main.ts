@@ -1,37 +1,38 @@
-let commands = ["START", "1E"];
+let commands = ["START", "1W"];
 
 let previousDirection = "N";
 
 let mu = 1;
 
 function forward25(strength: number) {
-    motion.drive(9 * mu, 1 * mu);
+    motion.drive(8 * mu, 1 * mu);
     control.waitMicros(300000);
     motion.drive(8 * mu, 7 * mu);
     control.waitMicros(1290000);
     motion.stop();
 }
 
-function forward50(strength:number) {
-    motion.drive(8 * mu, 2 * mu);
+function forward50(strength: number) {
+    motion.drive((8 * mu), (2 * mu));
     control.waitMicros(290000);
-    motion.drive(8 * mu, 7 * mu);
+    motion.drive((8 * mu), (7 * mu));
     control.waitMicros(800000);
-    motion.drive(9 * mu, 9 * mu);
+    motion.drive((9 * mu), (9 * mu));
     control.waitMicros(2000000);
     motion.stop();
-    
 }
 
 function right(){
-    motion.drive(0,5);
-    control.waitMicros(1000000);
+    motion.drive(2, 0);
+    control.waitMicros(2050000);
     motion.stop();
 }
 
 
 function left() {
-    
+    motion.drive(0, 2);
+    control.waitMicros(2050000);
+    motion.stop();
 }
 
 function reverse(){
@@ -54,13 +55,13 @@ commands.forEach((command) => {
             }
             else if(direction == "E")
             {
-                right()
-                forward50(strength)
+                right();
+                forward50(strength);
             }
             else if(direction == "S")
             {
-                right()
-                right()
+                right();
+                right();
                 forward50(strength)
             }
             else if(direction == "W")
