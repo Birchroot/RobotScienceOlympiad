@@ -1,4 +1,4 @@
-let commands = ["START", "1W"];
+let commands = ["START", "1W","1S"];
 
 let previousDirection = "N";
 
@@ -9,30 +9,35 @@ function forward25(strength: number) {
     control.waitMicros(300000);
     motion.drive(8 * mu, 7 * mu);
     control.waitMicros(1290000);
-    motion.stop();
+    //motion.stop();
 }
 
 function forward50(strength: number) {
-    motion.drive((8 * mu), (2 * mu));
+    //motion.drive((8 * mu), (2 * mu));
+    motion.drive((7 * mu), (8 * mu));
     control.waitMicros(290000);
     motion.drive((8 * mu), (7 * mu));
     control.waitMicros(800000);
     motion.drive((9 * mu), (9 * mu));
     control.waitMicros(2000000);
-    motion.stop();
+    //motion.stop();
 }
 
 function right(){
-    motion.drive(2, 0);
-    control.waitMicros(2050000);
-    motion.stop();
+    //motion.turnRight(5)
+    //motion.drive(2, 0);
+    //control.waitMicros(2050000);
+    motion.drive(3, -3);
+    control.waitMicros(250500);
+    //motion.stop();
 }
 
 
 function left() {
-    motion.drive(0, 2);
-    control.waitMicros(2050000);
-    motion.stop();
+    //motion.turnLeft(5)
+    motion.drive(-3, 3);
+    control.waitMicros(250500);
+    //motion.stop();
 }
 
 function reverse(){
@@ -127,5 +132,6 @@ commands.forEach((command) => {
                 forward50(strength)
             }
         }
+        previousDirection = direction
     }
 })
