@@ -1,4 +1,4 @@
-let commands = ["START", "1W","1S"];
+let commands = ["START", "1W", "1S", "1N", "3E"];
 
 let previousDirection = "N";
 
@@ -13,21 +13,25 @@ function forward25(strength: number) {
 }
 
 function forward50(strength: number) {
-    //motion.drive((8 * mu), (2 * mu));
-    motion.drive((7 * mu), (8 * mu));
-    control.waitMicros(290000);
-    motion.drive((8 * mu), (7 * mu));
-    control.waitMicros(800000);
-    motion.drive((9 * mu), (9 * mu));
-    control.waitMicros(2000000);
-    //motion.stop();
+    motion.drive((90 * mu), (91 * mu));
+    for (let k = 0; k < strength; k++) {
+        control.waitMicros(100000);
+        //motion.drive((7 * mu), (8 * mu));
+        motion.drive((7 * mu), (8 * mu));
+        control.waitMicros(290000);
+        motion.drive((8 * mu), (7 * mu));
+        control.waitMicros(800000);
+        motion.drive((9 * mu), (9 * mu));
+        control.waitMicros(2000000);
+        //motion.stop();
+    }
 }
 
-function right(){
+function right() {
     //motion.turnRight(5)
     //motion.drive(2, 0);
     //control.waitMicros(2050000);
-    motion.drive(3, -3);
+    motion.drive(8, -8);
     control.waitMicros(250500);
     //motion.stop();
 }
@@ -35,42 +39,38 @@ function right(){
 
 function left() {
     //motion.turnLeft(5)
-    motion.drive(-3, 3);
+    //motion.stop();
+    motion.drive(-8, 8);
     control.waitMicros(250500);
     //motion.stop();
 }
 
-function reverse(){
-    
+function reverse() {
+
 }
 
 commands.forEach((command) => {
-    if (command == 'START'){
+    if (command == 'START') {
         forward25(1);
-    }else{
+    } else {
         let cmd = command.split("");
         let strength = parseInt(cmd[0]);
         let direction = cmd[1];
-        
-        if(previousDirection == 'N')
-        {
-            if(direction == "N")
-            {
+
+        if (previousDirection == 'N') {
+            if (direction == "N") {
                 forward50(strength)
             }
-            else if(direction == "E")
-            {
+            else if (direction == "E") {
                 right();
                 forward50(strength);
             }
-            else if(direction == "S")
-            {
+            else if (direction == "S") {
                 right();
                 right();
                 forward50(strength)
             }
-            else if(direction == "W")
-            {
+            else if (direction == "W") {
                 left()
                 forward50(strength)
             }
@@ -132,6 +132,7 @@ commands.forEach((command) => {
                 forward50(strength)
             }
         }
-        previousDirection = direction
+        previousDirection = direction;
     }
+    motion.stop();
 })
