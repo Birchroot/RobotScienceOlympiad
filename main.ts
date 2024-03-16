@@ -1,11 +1,13 @@
-let commands = ["START", "1W", "1S", "1N", "3E"];
+let commands = ["START", "1E", "2S", "2W", "1N", "2E"];
 
 let previousDirection = "N";
 
-let mu = 1;
+let mu = 0.81; //increase to go faster
+
+let turnMu = 1; //decrease for slower turns, increase for faster
 
 function forward25(strength: number) {
-    motion.drive(8 * mu, 1 * mu);
+    motion.drive(6 * mu, 1 * mu);
     control.waitMicros(300000);
     motion.drive(8 * mu, 7 * mu);
     control.waitMicros(1290000);
@@ -17,9 +19,9 @@ function forward50(strength: number) {
     for (let k = 0; k < strength; k++) {
         control.waitMicros(100000);
         //motion.drive((7 * mu), (8 * mu));
-        motion.drive((7 * mu), (8 * mu));
+        motion.drive((9 * mu), (9 * mu));
         control.waitMicros(290000);
-        motion.drive((8 * mu), (7 * mu));
+        motion.drive((7 * mu), (8 * mu));
         control.waitMicros(800000);
         motion.drive((9 * mu), (9 * mu));
         control.waitMicros(2000000);
@@ -27,23 +29,27 @@ function forward50(strength: number) {
     }
 }
 
+
+
 function right() {
     //motion.turnRight(5)
     //motion.drive(2, 0);
     //control.waitMicros(2050000);
-    motion.drive(8, -8);
-    control.waitMicros(250500);
+    motion.drive(turnMu, -1 * turnMu);
+    control.waitMicros(260000);
     //motion.stop();
+    
 }
 
 
 function left() {
     //motion.turnLeft(5)
     //motion.stop();
-    motion.drive(-8, 8);
-    control.waitMicros(250500);
+    motion.drive(-1 * turnMu, turnMu);
+    control.waitMicros(270000);
     //motion.stop();
 }
+
 
 function reverse() {
 
@@ -56,10 +62,11 @@ commands.forEach((command) => {
         let cmd = command.split("");
         let strength = parseInt(cmd[0]);
         let direction = cmd[1];
-
+    
         if (previousDirection == 'N') {
             if (direction == "N") {
-                forward50(strength)
+                forward50(strength);
+                
             }
             else if (direction == "E") {
                 right();
@@ -132,6 +139,7 @@ commands.forEach((command) => {
                 forward50(strength)
             }
         }
+
         previousDirection = direction;
     }
     motion.stop();
